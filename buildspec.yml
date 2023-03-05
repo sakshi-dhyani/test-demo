@@ -1,19 +1,14 @@
-version: 0.2
+  version: 0.2
 
-phases:
-  install:
-    runtime-versions:
-      java: corretto8
-  pre_build:
+  phases:
+   build:
     commands:
-      - echo Nothing to do in the pre_build phase...
-  build:
-    commands:
-      - echo Build started on `date`
-      - mvn install
+     -echo Entered the build phase...
+     -mvn clean package
   post_build:
-    commands:
-      - echo Build completed on `date`
-artifacts:
-  files:
-    - target/farelabs-0.0.1-SNAPSHOT.jar
+   commands:
+     -echo Build completed successfully
+  artifacts:
+   files:
+     -target/farelabs-0.0.1-SNAPSHOT.jar
+  discard-paths: yes
